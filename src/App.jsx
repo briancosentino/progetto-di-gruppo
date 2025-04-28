@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home'
 import Footer from './components/Footer'
 import JourneyPage from '../pages/JourneyPage'
+import AddJourney from '../pages/AddJourney'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/journey/:id' element={<JourneyPage />} />
+          <Route path='/add-journey' element={<AddJourney />} />
 
         </Routes>
         <Footer />

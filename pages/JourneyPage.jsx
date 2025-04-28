@@ -8,11 +8,10 @@ const JourneyPage = () => {
     const { id } = useParams();
     const thisJourney = journeys.find(journey => journey.id == id)
     console.log(thisJourney);
-    const [partecipants, setPartecipants] = useState(thisJourney.people)
+    const [partecipants, setPartecipants] = useState(thisJourney.people || null)
     const [searchedPartecipants, setSearchedPartecipants] = useState(partecipants)
     console.log(partecipants);
-    const [dropdownOpen, setDropdownOpen] = useState(true)
-    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
 
     return (
         <>
@@ -25,7 +24,7 @@ const JourneyPage = () => {
                 </div>
                 <div className="row flex-wrap g-3  ">
 
-                    {searchedPartecipants.map(partecipant => (
+                    {searchedPartecipants && searchedPartecipants.map(partecipant => (
                         <div key={partecipant.codiceFiscale} className="accordion " id={`accordion-${partecipant.codiceFiscale}`}>
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
