@@ -10,7 +10,7 @@ const SearchBar = ({ partecipants, setSearchedPartecipants }) => {
     const handleChanges = useEffect(() => {
         if (searched !== ' ') {
 
-            setSearchedPartecipants(partecipants.filter(partecipant => partecipant.name.toLowerCase().includes(searched.toLowerCase())))
+            setSearchedPartecipants(partecipants.filter(partecipant => partecipant.name.toLowerCase().startsWith(searched.toLowerCase()) || partecipant.surname.toLowerCase().startsWith(searched.toLowerCase())))
         } else {
             console.log('la ricerca è nulla ');
 

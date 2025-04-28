@@ -4,6 +4,7 @@ const journeys = [
         "destination": "Parigi",
         "begin": "2025-05-01",
         "end": "2025-05-07",
+        "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop",
         "people": [
             {
                 "name": "Luca",
@@ -76,6 +77,7 @@ const journeys = [
         "destination": "Roma",
         "begin": "2025-05-10",
         "end": "2025-05-15",
+        "imageUrl": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2096&auto=format&fit=crop",
         "people": [
             {
                 "name": "Elena",
@@ -148,6 +150,7 @@ const journeys = [
         "destination": "New York",
         "begin": "2025-06-01",
         "end": "2025-06-10",
+        "imageUrl": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2070&auto=format&fit=crop",
         "people": [
             {
                 "name": "Giovanni",
@@ -220,6 +223,7 @@ const journeys = [
         "destination": "Tokyo",
         "begin": "2025-07-05",
         "end": "2025-07-20",
+        "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1794&auto=format&fit=crop",
         "people": [
             {
                 "name": "Giovanni",
@@ -249,7 +253,7 @@ const journeys = [
                 "name": "Giovanni",
                 "surname": "Viola",
                 "phoneNumber": "3059591891",
-                "codiceFiscale": "VIOGIO71A01H501X",
+                "codiceFiscale": "VIOGIO71A01H501D",
                 "email": "giovanni.viola@example.com",
                 "emergencyContactPhone": "3572810806"
             },

@@ -1,0 +1,200 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+
+h1,
+h2 {
+    color: #343a40;
+    font-weight: bold;
+}
+
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.journey-dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.dashboard-title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.journey-card {
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.journey-card .card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.journey-card:hover .card {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.journey-card .card-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.journey-id {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #e9ecef;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.dates-container {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.date-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.participants-count {
+    color: #007bff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .journey-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .journey-dashboard {
+        background-color: #1a1a1a;
+    }
+
+    .journey-card .card {
+        background: #2c2c2c;
+    }
+
+    .dashboard-title,
+    .journey-card .card-title {
+        color: #f8f9fa;
+    }
+
+    .journey-id {
+        background: #3a3a3a;
+        color: #dee2e6;
+    }
+
+    .dates-container {
+        color: #adb5bd;
+    }
+
+    .date-label {
+        color: #dee2e6;
+    }
+
+    .participants-count {
+        background: #3a3a3a;
+        color: #5fa8ff;
+    }
+}
+
+header {
+    background-color: #f8f9fa;
+    z-index: 997;
+
+    img {
+        max-width: 200px;
+        transform: scale(1.2);
+    }
+}
+
+footer {
+    background-color: #f8f9fa;
+
+}
+
+.img-banner {
+    height: 180px !important;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: gray;
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        max-width: 100%;
+
+    }
+}
+
+.overlay {
+    z-index: 998;
+}
+
+.form-overlay {
+    z-index: 999;
+}
+
+.fa-xmark {
+    cursor: pointer;
+}

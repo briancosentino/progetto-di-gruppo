@@ -24,7 +24,7 @@ const JourneyPage = () => {
                     <h2 className='mb-5'>Partecipanti</h2>
                     <div className='d-flex align-items-stretch'>
                         <button onClick={() => setIsFormOpen(true)} className='btn border border-secondary rounded-4 me-2'><i className='fa-solid fa-plus'></i></button>
-                        {isFormOpen && (<AddPersonForm />)}
+                        {isFormOpen && (<AddPersonForm setIsFormOpen={setIsFormOpen} partecipants={partecipants} />)}
                         <SearchBar setSearchedPartecipants={setSearchedPartecipants} partecipants={partecipants} />
                     </div>
                 </div>
@@ -34,17 +34,24 @@ const JourneyPage = () => {
                         <div key={partecipant.codiceFiscale} className="accordion " id={`accordion-${partecipant.codiceFiscale}`}>
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
-                                    <button className="accordion-button collapsed bg-white " type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne-${partecipant.codiceFiscale}`} aria-expanded="true" aria-controls={`collapseOne-${partecipant.codiceFiscale}`}>
-                                        {partecipant.name} {partecipant.surname}
+                                    <button className="accordion-button collapsed bg-white d-flex jou " type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne-${partecipant.codiceFiscale}`} aria-expanded="true" aria-controls={`collapseOne-${partecipant.codiceFiscale}`}>
+                                        <div className='profile-image'>
+                                            <img className='' src={`https://i.pravatar.cc/300?u=${partecipant.codiceFiscale}`} alt="" />
+
+                                        </div>
+                                        <div className='h2 d-flex align-items-center m-0 ps-3'>
+
+                                            {partecipant.name} {partecipant.surname}
+                                        </div>
                                     </button>
                                 </h2>
                                 <div id={`collapseOne-${partecipant.codiceFiscale}`} className="accordion-collapse collapse " data-bs-parent={`#accordion-${partecipant.codiceFiscale}`}>
                                     <div className="accordion-body">
                                         <ul className="list-">
-                                            <li className='list-group-item' ><strong>Numero di telefono: </strong>{partecipant.phoneNumber}</li>
-                                            <li className='list-group-item' ><strong>Email: </strong>{partecipant.email}</li>
-                                            <li className='list-group-item'><strong>Codice fiscale: </strong>{partecipant.codiceFiscale}</li>
-                                            <li className='list-group-item' ><strong>Contatto di emergenza: </strong>{partecipant.emergencyContactPhone}</li>
+                                            <li className='list-group-item h5' ><strong>Numero di telefono: </strong>{partecipant.phoneNumber}</li>
+                                            <li className='list-group-item h5' ><strong>Email: </strong>{partecipant.email}</li>
+                                            <li className='list-group-item h5'><strong>Codice fiscale: </strong>{partecipant.codiceFiscale}</li>
+                                            <li className='list-group-item h5' ><strong>Contatto di emergenza: </strong>{partecipant.emergencyContactPhone}</li>
 
 
                                         </ul>

@@ -5,12 +5,12 @@ const AddJourneyForm = () => {
     /* const [destination, setDestination] = useState(null)
     const [begin, setBegin] = useState(null)
     const [end, setEnd] = useState(null) */
-    const [formData, setFormData] = useState({ id: journeys.length + 1, })
-    console.log(formData);
+    const [formData, setFormData] = useState({ id: journeys.length + 1, people: [] })
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value }) /* use input name as proprierty of the object to save the value */
 
     }
+    console.log(formData);
     const handleSubmit = (e) => {
         e.preventDefault()
         journeys.push(formData)

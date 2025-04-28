@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import journeys from './data/journeys'
-import JourneyList from './components/JourneyList'
+import JourneyList from './components/journeyList/JourneyList'
 import PaddingWrapper from './components/PaddingWrapper'
 import Header from './components/Header'
 import { Routes, Route } from 'react-router-dom'
