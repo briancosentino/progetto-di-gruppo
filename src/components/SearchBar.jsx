@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react"
 import journeys from "../data/journeys"
+import { useParams } from "react-router-dom"
 
 
-const SearchBar = ({ partecipants, setSearchedPartecipants }) => {
-    const [isOpen, setIsOpen] = useState(false)
+const SearchBar = ({ originalArray, setFilteredArray, searchBy }) => {
+
     const [searched, setSearched] = useState(' ')
+
+
+
 
 
     const handleChanges = useEffect(() => {
         if (searched !== ' ') {
 
-            setSearchedPartecipants(partecipants.filter(partecipant => partecipant.name.toLowerCase().startsWith(searched.toLowerCase()) || partecipant.surname.toLowerCase().startsWith(searched.toLowerCase())))
+            setFilteredArray(originalArray.filter(element => element.name?.toLowerCase().startsWith(searched.toLowerCase()) || element.surname?.toLowerCase().startsWith(searched.toLowerCase()) || element.destination?.toLowerCase().startsWith(searched.toLowerCase())))
         } else {
             console.log('la ricerca è nulla ');
 
 
-            setSearchedPartecipants(partecipants)
+            setFilteredArray(originalArray)
         }
 
 
@@ -27,20 +31,17 @@ const SearchBar = ({ partecipants, setSearchedPartecipants }) => {
 
     }
     console.log(searched.length);
-    console.log(partecipants);
+
 
 
 
 
     return (
-        <>
-            <button className={`btn ${isOpen ? 'd-none' : ''} border border-secondary rounded-4`} onClick={() => setIsOpen(true)}><i className="fa-solid fa-magnifying-glass"></i></button>
-            {isOpen && (
-                <>
-                    <input onChange={handleChange} className="p-2 rounded-4 border border-secondary ps-3 pe-5" type="search" name="filter" id="filter" placeholder="Cerca partecipanti..." />
-                </>
-            )}
-        </>
+
+
+        <input onChange={handleChange} className="p-2 rounded-4 border border-secondary ps-3 pe-5 searchbar" type="search" name="filter" id="filter" placeholder={`Cerca ${searchBy}...`} />
+
+
 
     )
 }

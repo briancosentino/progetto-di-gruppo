@@ -1,28 +1,33 @@
 import journeys from "../../data/journeys"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 import './journeyList.css'
+import SearchBar from "../SearchBar"
 
 const JourneyList = () => {
-    /*  onError={(e) => {
-         e.target.onerror = null
-         e.currentTarget.src = "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop" */
+    const [searchedJourneys, setSearchedJourneys] = useState(journeys)
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <div className="journey-dashboard p-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-                <h1 className="dashboard-title mb-0">Gestione Viaggi</h1>
-                <div className=''>
+            <div className="d-flex justify-content-between align-items-center  gap-2 mb-4">
+                {!isOpen && (<h1 className="dashboard-title  mb-0">Gestione Viaggi</h1>)}
+                <div className='d-flex justify-content-end'>
 
-                    <button className="btn btn-primary rounded-4 ">
+                    <button className="btn btn-primary rounded-4 me-2">
                         <Link className='text-white' to={'/add-journey'}>
                             <i className='fa-regular fa-plus'></i>
                         </Link>
 
 
+
                     </button>
+                    <button className={`btn ${isOpen ? 'd-none' : ''} border border-secondary rounded-4`} onClick={() => setIsOpen(true)}><i className="fa-solid fa-magnifying-glass"></i></button>
+
+                    {isOpen && (<SearchBar setFilteredArray={setSearchedJourneys} originalArray={journeys} searchBy={'viaggi'} />)}
                 </div>
             </div>
             <div className="journey-grid">
-                {journeys.map(journey => (
+                {searchedJourneys.map(journey => (
                     <Link
                         className="journey-card text-decoration-none"
                         to={`/journey/${journey.id}`}

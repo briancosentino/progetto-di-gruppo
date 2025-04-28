@@ -13,19 +13,23 @@ const JourneyPage = () => {
     const [searchedPartecipants, setSearchedPartecipants] = useState(partecipants)
     console.log(partecipants);
     const [isFormOpen, setIsFormOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
 
     return (
         <>
             <div>
-                <h1 className="display-3 text-center">{thisJourney.destination}</h1>
-                <div className='d-flex justify-content-between align-items-center'>
+                <h1 className="display-3 text-center text-primary">{thisJourney.destination}</h1>
+                <div className='d-flex justify-content-between align-items-center mb-3'>
 
-                    <h2 className='mb-5'>Partecipanti</h2>
+                    {!isOpen && (<h2 className=' dashboard-title'>Partecipanti</h2>)}
                     <div className='d-flex align-items-stretch'>
                         <button onClick={() => setIsFormOpen(true)} className='btn border border-secondary rounded-4 me-2'><i className='fa-solid fa-plus'></i></button>
                         {isFormOpen && (<AddPersonForm setIsFormOpen={setIsFormOpen} partecipants={partecipants} />)}
-                        <SearchBar setSearchedPartecipants={setSearchedPartecipants} partecipants={partecipants} />
+                        <button className={`btn ${isOpen ? 'd-none' : ''} border border-secondary rounded-4`} onClick={() => setIsOpen(true)}><i className="fa-solid fa-magnifying-glass"></i></button>
+
+                        {isOpen && (<SearchBar setFilteredArray={setSearchedPartecipants} originalArray={partecipants} searchBy={'partecipanti'} />)}
+
                     </div>
                 </div>
                 <div className="row flex-wrap g-3  ">

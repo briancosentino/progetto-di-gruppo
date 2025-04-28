@@ -18,7 +18,7 @@ const AddJourneyForm = () => {
 
 
     return (
-        <form onSubmit={handleSubmit} className="mx-auto w-25">
+        <form onSubmit={handleSubmit} className="mx-auto w-75 ">
             <div className="my-3">
                 <label className="mb-2" htmlFor="destination">Destinazione</label>
 

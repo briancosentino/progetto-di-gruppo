@@ -45,6 +45,13 @@ h2 {
     border-bottom: 3px solid #007bff;
     display: inline-block;
     padding-bottom: 0.5rem;
+
+}
+
+@media screen and (max-width: 450px) {
+    .dashboard-title {
+        font-size: 1.5rem !important;
+    }
 }
 
 .journey-grid {
@@ -156,8 +163,30 @@ header {
     background-color: #f8f9fa;
     z-index: 997;
 
+    /* .nav-link::after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 0%;
+        background-color: blue;
+    }
+
+    .nav-link::after:hover {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        transition: .3s ease;
+        background-color: blue;
+    } */
+
+    .nav-link:hover {
+        transform: scale(1.1);
+        transition: .2s ease;
+    }
+
     img {
-        max-width: 200px;
+        max-width: 120px;
         transform: scale(1.2);
     }
 }
