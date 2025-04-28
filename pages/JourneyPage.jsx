@@ -20,16 +20,22 @@ const JourneyPage = () => {
                 <div className="row flex-wrap g-3  ">
 
                     {partecipants.map(partecipant => (
-                        <div key={`accordion-${partecipant.name}-${partecipant.codiceFiscale}`} className="accordion" id={`accordion-${partecipant.name}-${partecipant.id}`}>
+                        <div key={partecipant.codiceFiscale} className="accordion " id={`accordion-${partecipant.codiceFiscale}`}>
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
-                                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`collapse-${partecipant.name}-${partecipant.id}`} aria-expanded="true" aria-controls="collapseOne">
+                                    <button className="accordion-button collapsed bg-white " type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne-${partecipant.codiceFiscale}`} aria-expanded="true" aria-controls={`collapseOne-${partecipant.codiceFiscale}`}>
                                         {partecipant.name} {partecipant.surname}
                                     </button>
                                 </h2>
-                                <div id={`collapse-${partecipant.name}-${partecipant.id}`} className="accordion-collapse collapse show" data-bs-parent={`accordion-${partecipant.name}-${partecipant.id}`}>
+                                <div id={`collapseOne-${partecipant.codiceFiscale}`} className="accordion-collapse collapse " data-bs-parent={`#accordion-${partecipant.codiceFiscale}`}>
                                     <div className="accordion-body">
-                                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <ul className="list-">
+                                            <li className='list-group-item' ><strong>Numero di telefono: </strong>{partecipant.phoneNumber}</li>
+                                            <li className='list-group-item' ><strong>Email: </strong>{partecipant.email}</li>
+                                            <li className='list-group-item' ><strong>Contatto di emergenza: </strong>{partecipant.emergencyContactPhone}</li>
+
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +45,7 @@ const JourneyPage = () => {
                     ))}
 
                 </div>
-
+                {/* To do: aggiungere immagini per singolo partecipante */}
 
             </div>
 
