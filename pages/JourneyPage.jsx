@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import journeys from '../src/data/journeys';
 import { useState } from 'react';
 import SearchBar from '../src/components/SearchBar';
+import AddPersonForm from '../src/components/AddPersonForm';
 
 const JourneyPage = () => {
     const { id } = useParams();
@@ -11,6 +12,7 @@ const JourneyPage = () => {
     const [partecipants, setPartecipants] = useState(thisJourney.people || null)
     const [searchedPartecipants, setSearchedPartecipants] = useState(partecipants)
     console.log(partecipants);
+    const [isFormOpen, setIsFormOpen] = useState(false)
 
 
     return (
@@ -20,7 +22,11 @@ const JourneyPage = () => {
                 <div className='d-flex justify-content-between align-items-center'>
 
                     <h2 className='mb-5'>Partecipanti</h2>
-                    <SearchBar setSearchedPartecipants={setSearchedPartecipants} partecipants={partecipants} />
+                    <div className='d-flex align-items-stretch'>
+                        <button onClick={() => setIsFormOpen(true)} className='btn border border-secondary rounded-4 me-2'><i className='fa-solid fa-plus'></i></button>
+                        {isFormOpen && (<AddPersonForm />)}
+                        <SearchBar setSearchedPartecipants={setSearchedPartecipants} partecipants={partecipants} />
+                    </div>
                 </div>
                 <div className="row flex-wrap g-3  ">
 

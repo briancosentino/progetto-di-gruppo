@@ -34,7 +34,7 @@ const SearchBar = ({ partecipants, setSearchedPartecipants }) => {
 
     return (
         <>
-            <button className={`btn ${isOpen ? 'd-none' : ''}`} onClick={() => setIsOpen(true)}><i className="fa-solid fa-magnifying-glass"></i></button>
+            <button className={`btn ${isOpen ? 'd-none' : ''} border border-secondary rounded-4`} onClick={() => setIsOpen(true)}><i className="fa-solid fa-magnifying-glass"></i></button>
             {isOpen && (
                 <>
                     <input onChange={handleChange} className="p-2 rounded-4 border border-secondary ps-3 pe-5" type="search" name="filter" id="filter" placeholder="Cerca partecipanti..." />
