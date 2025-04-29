@@ -29,7 +29,7 @@ const AddPersonForm = ({ setIsFormOpen, partecipants }) => {
 
             </div>
             <div className='position-fixed top-0 end-0 start-0 bottom-0  form-overlay d-flex align-items-center justify-content-center '>
-                <form onSubmit={handleSubmit} className="w-50  bg-white rounded-4 p-3">
+                <form onSubmit={handleSubmit} className="col-10 col-md-6 bg-white rounded-4 p-3">
                     <div className='w-100 text-danger '><i onClick={() => setIsFormOpen(false)} className='fa-solid fa-xmark'></i></div>
 
                     <div className='my-3'>

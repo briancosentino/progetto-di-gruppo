@@ -8,6 +8,8 @@ import Home from '../pages/Home'
 import Footer from './components/Footer'
 import JourneyPage from '../pages/JourneyPage'
 import AddJourney from '../pages/AddJourney'
+import LoginPage from '../pages/LoginPage'
+import { AuthProvider } from '../contexts/authContext'
 
 
 function App() {
@@ -17,17 +19,21 @@ function App() {
 
   return (
     <>
-      <PaddingWrapper>
+      <AuthProvider>
 
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/journey/:id' element={<JourneyPage />} />
-          <Route path='/add-journey' element={<AddJourney />} />
+        <PaddingWrapper>
 
-        </Routes>
-        <Footer />
-      </PaddingWrapper>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/journey/:id' element={<JourneyPage />} />
+            <Route path='/add-journey' element={<AddJourney />} />
+            <Route path='/login' element={<LoginPage />} />
+
+          </Routes>
+          <Footer />
+        </PaddingWrapper>
+      </AuthProvider>
     </>
   )
 }

@@ -227,3 +227,24 @@ footer {
 .fa-xmark {
     cursor: pointer;
 }
+
+.remove-button {
+    height: 20px;
+    aspect-ratio: 1;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .remove-icon {
+        height: 3px;
+        border-radius: 1rem;
+        width: 60%;
+        margin: auto;
+    }
+}
+
+.login-wrapper {
+    width: 100vw;
+    height: calc(100vh - 152px);
+}

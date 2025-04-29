@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import './journeyList.css'
 import SearchBar from "../SearchBar"
+import handleDelete from "../../../hooks/handleDeleteHook"
 
 const JourneyList = () => {
     const [searchedJourneys, setSearchedJourneys] = useState(journeys)
@@ -10,7 +11,7 @@ const JourneyList = () => {
     return (
         <div className="journey-dashboard p-4">
             <div className="d-flex justify-content-between align-items-center  gap-2 mb-4">
-                {!isOpen && (<h1 className="dashboard-title  mb-0">Gestione Viaggi</h1>)}
+                <h1 className={`dashboard-title  mb-0 ${!isOpen ? '' : 'd-none d-md-block'}`}>Gestione Viaggi</h1>
                 <div className='d-flex justify-content-end'>
 
                     <button className="btn btn-primary rounded-4 me-2">

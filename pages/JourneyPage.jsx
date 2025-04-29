@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import journeys from '../src/data/journeys';
 import { useState } from 'react';
 import SearchBar from '../src/components/SearchBar';
 import AddPersonForm from '../src/components/AddPersonForm';
+import handleDelete from '../hooks/handleDeleteHook';
 
 const JourneyPage = () => {
     const { id } = useParams();
@@ -16,9 +17,13 @@ const JourneyPage = () => {
     const [isOpen, setIsOpen] = useState(false)
 
 
+
+
+
+
     return (
         <>
-            <div>
+            <div className='px-3'>
                 <h1 className="display-3 text-center text-primary">{thisJourney.destination}</h1>
                 <div className='d-flex justify-content-between align-items-center mb-3'>
 
@@ -34,11 +39,11 @@ const JourneyPage = () => {
                 </div>
                 <div className="row flex-wrap g-3  ">
 
-                    {searchedPartecipants && searchedPartecipants.map(partecipant => (
+                    {searchedPartecipants && searchedPartecipants.map((partecipant, idx) => (
                         <div key={partecipant.codiceFiscale} className="accordion " id={`accordion-${partecipant.codiceFiscale}`}>
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
-                                    <button className="accordion-button collapsed bg-white d-flex jou " type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne-${partecipant.codiceFiscale}`} aria-expanded="true" aria-controls={`collapseOne-${partecipant.codiceFiscale}`}>
+                                    <button className="accordion-button  collapsed bg-white d-flex jou " type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne-${partecipant.codiceFiscale}`} aria-expanded="true" aria-controls={`collapseOne-${partecipant.codiceFiscale}`}>
                                         <div className='profile-image'>
                                             <img className='' src={`https://i.pravatar.cc/300?u=${partecipant.codiceFiscale}`} alt="" />
 
@@ -51,6 +56,12 @@ const JourneyPage = () => {
                                 </h2>
                                 <div id={`collapseOne-${partecipant.codiceFiscale}`} className="accordion-collapse collapse " data-bs-parent={`#accordion-${partecipant.codiceFiscale}`}>
                                     <div className="accordion-body">
+                                        <div className="w-100 d-flex justify-content-end p-2 align-items-center">
+                                            <p className='m-0 me-2 text-danger'>Elimina</p>
+                                            <div onClick={() => handleDelete(searchedPartecipants, idx, setSearchedPartecipants)} className=" rounded-pill remove-button">
+                                                <div className='remove-icon bg-white'></div>
+                                            </div>
+                                        </div>
                                         <ul className="list-">
                                             <li className='list-group-item h5' ><strong>Numero di telefono: </strong>{partecipant.phoneNumber}</li>
                                             <li className='list-group-item h5' ><strong>Email: </strong>{partecipant.email}</li>
